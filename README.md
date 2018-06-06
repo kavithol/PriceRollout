@@ -36,6 +36,9 @@ There are 4 tables.
 3. ROLLOUT_STATUS: To store the status of the rollout.
 4. PRICE_REVISION: To store the history of the rollout including old price and new price with the rollout id.
 
+For DataModel, please see :
+https://github.com/kavithol/PriceRollout/blob/master/DataModel.png
+
 ### Scalability
 The system is designed to use concurrent threads to execute the rollouts. 
 We can horizontally scale this application with multiple servers and balance load using load balancer.
