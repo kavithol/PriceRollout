@@ -1,0 +1,108 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "v1",
+    "title" : "Sample API document",
+    "contact" : {
+      "name" : "klakshmanan"
+    }
+  },
+  "basePath" : "/swagger",
+  "tags" : [ {
+    "name" : "RolloutResource"
+  } ],
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/rollout" : {
+      "post" : {
+        "tags" : [ "RolloutResource" ],
+        "summary" : "CreateRollout",
+        "description" : "Creates rollout from request",
+        "operationId" : "scheduleRollout",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/CreateRolloutRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/rollout/user/{userId}" : {
+      "get" : {
+        "tags" : [ "RolloutResource" ],
+        "summary" : "GetUserInformation",
+        "description" : "Get user information with id",
+        "operationId" : "getUserStatus",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/rollout/{rolloutId}" : {
+      "get" : {
+        "tags" : [ "RolloutResource" ],
+        "summary" : "GetRolloutStatus",
+        "description" : "Get rollout status with id",
+        "operationId" : "getRolloutStatus",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "rolloutId",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "CreateRolloutRequest" : {
+      "type" : "object",
+      "properties" : {
+        "countryId" : {
+          "type" : "string"
+        },
+        "planId" : {
+          "type" : "string"
+        },
+        "price" : {
+          "type" : "number",
+          "format" : "double"
+        }
+      }
+    }
+  }
+}
